@@ -4,9 +4,13 @@ LABEL maintainer="Eiffel-Community"
 
 ARG JAR_LOCATION
 
-RUN yum -y install openssh-client 
-RUN yum -y install initscripts
-RUN yum -y install sudo
+
+# Update repository URLs to point to the CentOS Vault
+RUN sed -i 's/mirror.centos.org/vault.centos.org/g' /etc/yum.repos.d/*.repo && \
+    sed -i 's/^#.*baseurl=http/baseurl=http/g' /etc/yum.repos.d/*.repo && \
+    sed -i 's/^mirrorlist=http/#mirrorlist=http/g' /etc/yum.repos.d/*.repo
+
+RUN yum -y install openssh-client initscripts sudo
 
 # Add Gerrit packages repository
 RUN rpm -i https://gerritforge.com/gerritforge-repo-1-2.noarch.rpm
