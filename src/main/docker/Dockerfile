@@ -4,7 +4,9 @@ LABEL maintainer="Eiffel-Community"
 
 ARG JAR_LOCATION
 
-RUN yum -y install openssh-client initscripts sudo
+RUN yum -y install openssh-client 
+RUN yum -y install initscripts
+RUN yum -y install sudo
 
 # Add Gerrit packages repository
 RUN rpm -i https://gerritforge.com/gerritforge-repo-1-2.noarch.rpm
