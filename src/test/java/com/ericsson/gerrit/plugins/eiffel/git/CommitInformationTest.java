@@ -92,11 +92,11 @@ public class CommitInformationTest {
         final CommitsCollection commitsCollection = mock(CommitsCollection.class);
         final ProjectsCollection projectsCollection = mock(ProjectsCollection.class);
         final ProjectResource projectResource = mock(ProjectResource.class);
-
+        try{
         when(commitsCollection.parse(any(ProjectResource.class), any(IdString.class))).thenThrow(
                 ResourceNotFoundException.class);
         when(projectsCollection.parse(any(String.class), anyBoolean())).thenReturn(projectResource);
-         try{
+         
         final CommitInformation commitInformation = new CommitInformation(commitsCollection,
                 projectsCollection);
         final List<String> expectedParentsSha = Arrays.asList();
