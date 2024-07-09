@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
 import com.google.gerrit.extensions.restapi.IdString;
 import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
 import com.google.gerrit.extensions.restapi.UnprocessableEntityException;
-import com.google.gerrit.PermissionBackendException;
+import com.google.gerrit.extensions.restapi.PermissionBackendException;
 import com.google.gerrit.server.project.CommitResource;
 import com.google.gerrit.server.project.CommitsCollection;
 import com.google.gerrit.server.project.ProjectResource;
