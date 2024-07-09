@@ -87,9 +87,9 @@ public class CommitInformationTest {
 
     @Test
     public void testFetchingCommitNotFound() throws Exception {
-        try{
+        
         logHelper.removeStdoutAppenders();
-           
+        try{ 
         final CommitsCollection commitsCollection = mock(CommitsCollection.class);
         final ProjectsCollection projectsCollection = mock(ProjectsCollection.class);
         final ProjectResource projectResource = mock(ProjectResource.class);
