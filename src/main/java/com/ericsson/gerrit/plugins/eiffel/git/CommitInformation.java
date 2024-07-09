@@ -95,7 +95,7 @@ public class CommitInformation {
     }
 
     private List<RevCommit> getParentsFromCommit(final String commitId, final String projectName)
-            throws UnprocessableEntityException, IOException, ResourceNotFoundException {
+       throws UnprocessableEntityException, IOException, ResourceNotFoundException, PermissionBackendException {
 
         final ProjectResource projectResource = projectsCollection.parse(projectName, true);
         final CommitResource commitResource = commitsCollection.parse(projectResource,
