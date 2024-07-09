@@ -87,9 +87,9 @@ public class CommitInformationTest {
 
     @Test
     public void testFetchingCommitNotFound() throws Exception {
+        try{
         logHelper.removeStdoutAppenders();
-        
-           try{
+           
         final CommitsCollection commitsCollection = mock(CommitsCollection.class);
         final ProjectsCollection projectsCollection = mock(ProjectsCollection.class);
         final ProjectResource projectResource = mock(ProjectResource.class);
@@ -105,14 +105,13 @@ public class CommitInformationTest {
         final String projectName = "projectName";
 
         final List<String> actualParentSha = commitInformation.getParentsSHAs(commitId, projectName);
-         
-        assertEquals(expectedParentsSha, actualParentSha);
-        logHelper.verifyLoggerCalledTimes(1);
-               }
+                         }
         catch (CheckedException e){
              e.printStackTrace();
         }
-
+         
+        assertEquals(expectedParentsSha, actualParentSha);
+        logHelper.verifyLoggerCalledTimes(1);
     }
 
     @Test
