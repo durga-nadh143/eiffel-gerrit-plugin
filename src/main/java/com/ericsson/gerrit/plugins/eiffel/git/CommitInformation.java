@@ -29,6 +29,7 @@ import org.slf4j.LoggerFactory;
 import com.google.gerrit.extensions.restapi.IdString;
 import com.google.gerrit.extensions.restapi.ResourceNotFoundException;
 import com.google.gerrit.extensions.restapi.UnprocessableEntityException;
+import com.google.gerrit.PermissionBackendException;
 import com.google.gerrit.server.project.CommitResource;
 import com.google.gerrit.server.project.CommitsCollection;
 import com.google.gerrit.server.project.ProjectResource;
@@ -95,19 +96,14 @@ public class CommitInformation {
     }
 
     private List<RevCommit> getParentsFromCommit(final String commitId, final String projectName)
-       throws UnprocessableEntityException, IOException, ResourceNotFoundException {
+       throws UnprocessableEntityException, IOException, ResourceNotFoundException, PermissionBackendException {
 
-        try{
         final ProjectResource projectResource = projectsCollection.parse(projectName, true);
         final CommitResource commitResource = commitsCollection.parse(projectResource,
                 IdString.fromDecoded(commitId));
         final RevCommit commit = commitResource.getCommit();
         final RevCommit[] parents = commit.getParents();
-        }
-          catch(PermissionBackendException e){
-             e.printStackTrace();
-          }
-
+   
         return Arrays.asList(parents);
     }
 
