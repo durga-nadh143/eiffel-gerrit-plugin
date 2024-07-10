@@ -97,7 +97,8 @@ public class CommitInformation {
 
     private List<RevCommit> getParentsFromCommit(final String commitId, final String projectName)
        throws UnprocessableEntityException, IOException, ResourceNotFoundException, PermissionBackendException {
-      
+          
+        try{
         final ProjectResource projectResource = projectsCollection.parse(projectName, true);
         final CommitResource commitResource = commitsCollection.parse(projectResource,
                 IdString.fromDecoded(commitId));
@@ -105,6 +106,10 @@ public class CommitInformation {
         final RevCommit[] parents = commit.getParents();
            
         return Arrays.asList(parents);
+        }
+        catch (PermissionBackendException e) {
+           System.out.println("PermissionBackendException is occured");
+        }
     }
 
     private List<String> getSHAs(final List<RevCommit> parents) {
