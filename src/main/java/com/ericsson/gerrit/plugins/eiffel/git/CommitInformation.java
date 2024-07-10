@@ -97,18 +97,13 @@ public class CommitInformation {
 
     private List<RevCommit> getParentsFromCommit(final String commitId, final String projectName)
        throws UnprocessableEntityException, IOException, ResourceNotFoundException, PermissionBackendException {
-          
-        try{
+      
         final ProjectResource projectResource = projectsCollection.parse(projectName, true);
         final CommitResource commitResource = commitsCollection.parse(projectResource,
                 IdString.fromDecoded(commitId));
         final RevCommit commit = commitResource.getCommit();
         final RevCommit[] parents = commit.getParents();
-        }
-        catch (PermissionBackendException e) {
-         System.out.println("PermissionBackendException is occured");
-    }
-   
+           
         return Arrays.asList(parents);
     }
 
