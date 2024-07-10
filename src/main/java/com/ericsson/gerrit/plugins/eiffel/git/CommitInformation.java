@@ -81,7 +81,7 @@ public class CommitInformation {
 
         try {
             parents = getParentsFromCommit(commitId, projectName);
-        } catch (final UnprocessableEntityException e) {
+        } catch (final UnprocessableEntityException | PermissionBackendException e) {
             final String message = String.format("Cannot find or load the project %s", projectName);
             LOGGER.error(message, e);
         } catch (final ResourceNotFoundException e) {
