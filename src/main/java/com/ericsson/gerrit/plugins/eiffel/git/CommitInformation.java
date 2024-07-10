@@ -104,12 +104,13 @@ public class CommitInformation {
                 IdString.fromDecoded(commitId));
         final RevCommit commit = commitResource.getCommit();
         final RevCommit[] parents = commit.getParents();
+            return Arrays.asList(parents);
            }
         catch (PermissionBackendException e) {
            System.out.println("PermissionBackendException is occured");
         }
            
-        return Arrays.asList(parents);
+       
         
     }
 
