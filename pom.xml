@@ -8,7 +8,6 @@
     <artifactId>eiffel-gerrit-plugin</artifactId>
     <packaging>jar</packaging>
     <version>0.0.1</version>
-    
 
     <properties>
         <Gerrit-ApiType>plugin</Gerrit-ApiType>
