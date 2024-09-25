@@ -22,5 +22,5 @@ export REMREM_GENERATE_PORT=8095
 export REMREM_PUBLISH_PORT=8096
 
 export REMREM_PUBLISH_RABBITMQ_INSTANCES_LIST="[\
-{ \"mp\": \"eiffelsemantics\", \"host\": \"rabbitmq\", \"port\": \"5672\", \"username\": \"Durga\", \"password\": \"nadh\", \"tls\": \"\", \"exchangeName\": \"eiffel-exchange\", \"domainId\": \"gerrit-test-domain\", \"createExchangeIfNotExisting\":true }\
+{ \"mp\": \"eiffelsemantics\", \"host\": \"rabbitmq\", \"port\": \"5672\", \"username\": \"myuser\", \"password\": \"myuser\", \"tls\": \"\", \"exchangeName\": \"eiffel-exchange\", \"domainId\": \"gerrit-test-domain\", \"createExchangeIfNotExisting\":true }\
 ]"
